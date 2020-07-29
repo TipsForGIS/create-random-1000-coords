@@ -21,7 +21,7 @@ random_df.to_csv('./data/xys.csv', index=False)
 #######################################
 # create geodf and store it as geojson
 #######################################
-# add a column of type shapely point
-random_gdp = gpd.GeoDataFrame(random_df, geometry=gpd.points_from_xy(pd_df.Longitude, pd_df.Latitude),crs='EPSG:4326')
+# create a geodataframe using the random_df
+random_gdp = gpd.GeoDataFrame(random_df, geometry=gpd.points_from_xy(random_df.Longitude, random_df.Latitude),crs='EPSG:4326')
 # save the geodataframe to geojson file
 random_gdp.to_file('./data/xys.geojson',driver='GeoJSON')
